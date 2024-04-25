@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" xmlns:layout="https://github.com/ultraq/thymeleaf-layout-dialect" layout:decorate="~{layout}">
+<head>
+	<title>Home</title>
+</head>
+<body>
+	<div layout:fragment="content">
+		<form class="form-inline" name="f" th:action="@{/searchCart}" method="post">
+			<fieldset>
+				<legend>Search carts with a Total greater or equal to:</legend>
+				<input type="text" id="total" name="total" placeholder="1000" th:value="${total}"/>
+				<button type="submit" class="btn btn-primary">Search</button>
+			</fieldset>
+		</form>
+	</div>
+	<div layout:fragment="table-content">
+		<table class="table table-bordered" style="table-layout: fixed; word-wrap: break-word;">
+			<thead>
+				<tr>
+					<th>Cart ID</th>
+					<th>Total Amount</th>
+					<th>Actual Discount</th>
+					<th>Provide Discount</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="cart : ${carts}">
+					<form class="form-inline" name="d" th:action="@{/applyDiscount}" method="post" th:object="${cart}">
+					<td th:text="${cart.getId()}"></td>
+					<td th:text="${cart.getTotal()}"></td>
+					<td th:text="${cart.getDiscount()}"></td>
+					<td>
+						<input type="hidden" id="cartId" name="cartId" th:value="${cart.getId()}"/>
+						<input type="hidden" id="totalCarts" name="total" th:value="${total}"/>
+						<input type="text" id="discount" name="discount" placeholder="50" style="width: 75px;"/>
+						<button type="submit" class="btn btn-primary">Send</button>
+					</td>
+					</form>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

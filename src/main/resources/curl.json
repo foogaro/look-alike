@@ -1,0 +1,153 @@
+{
+  "features": [
+    {
+      "feature_idx": 0,
+      "name": "adult",
+      "type": {
+        "dtype": "bool",
+        "_type": "Value"
+      }
+    },
+    {
+      "feature_idx": 1,
+      "name": "also_known_as",
+      "type": {
+        "dtype": "string",
+        "_type": "Value"
+      }
+    },
+    {
+      "feature_idx": 2,
+      "name": "biography",
+      "type": {
+        "dtype": "string",
+        "_type": "Value"
+      }
+    },
+    {
+      "feature_idx": 3,
+      "name": "birthday",
+      "type": {
+        "dtype": "string",
+        "_type": "Value"
+      }
+    },
+    {
+      "feature_idx": 4,
+      "name": "deathday",
+      "type": {
+        "dtype": "string",
+        "_type": "Value"
+      }
+    },
+    {
+      "feature_idx": 5,
+      "name": "gender",
+      "type": {
+        "dtype": "int64",
+        "_type": "Value"
+      }
+    },
+    {
+      "feature_idx": 6,
+      "name": "homepage",
+      "type": {
+        "dtype": "string",
+        "_type": "Value"
+      }
+    },
+    {
+      "feature_idx": 7,
+      "name": "id",
+      "type": {
+        "dtype": "int64",
+        "_type": "Value"
+      }
+    },
+    {
+      "feature_idx": 8,
+      "name": "imdb_id",
+      "type": {
+        "dtype": "string",
+        "_type": "Value"
+      }
+    },
+    {
+      "feature_idx": 9,
+      "name": "known_for_department",
+      "type": {
+        "dtype": "string",
+        "_type": "Value"
+      }
+    },
+    {
+      "feature_idx": 10,
+      "name": "name",
+      "type": {
+        "dtype": "string",
+        "_type": "Value"
+      }
+    },
+    {
+      "feature_idx": 11,
+      "name": "place_of_birth",
+      "type": {
+        "dtype": "string",
+        "_type": "Value"
+      }
+    },
+    {
+      "feature_idx": 12,
+      "name": "popularity",
+      "type": {
+        "dtype": "float64",
+        "_type": "Value"
+      }
+    },
+    {
+      "feature_idx": 13,
+      "name": "profile_path",
+      "type": {
+        "dtype": "string",
+        "_type": "Value"
+      }
+    },
+    {
+      "feature_idx": 14,
+      "name": "image",
+      "type": {
+        "_type": "Image"
+      }
+    }
+  ],
+  "rows": [
+    {
+      "row_idx": 0,
+      "row": {
+        "adult": false,
+        "also_known_as": "['Agnes Khang']",
+        "biography": "Angeli Khang is an actress, born in Mandaluyong City, Philippines to a Korean father and a Filipino mother. She is a Viva Artists Agency talent but she has previously worked at Philmoda Entertainment Production as a model.",
+        "birthday": "2001-08-03",
+        "deathday": null,
+        "gender": 1,
+        "homepage": null,
+        "id": 3194176,
+        "imdb_id": "nm13112435",
+        "known_for_department": "Acting",
+        "name": "Angeli Khang",
+        "place_of_birth": "Mandaluyong City, Philippines",
+        "popularity": 207.229,
+        "profile_path": "jhNtIfmSlzsyQlo94BibQ2WIa7N.jpg",
+        "image": {
+          "src": "https://datasets-server.huggingface.co/cached-assets/ashraq/tmdb-people-image/--/cbf86032c77298cddde7e677254db1283e8b95ed/--/default/train/0/image/image.jpg?Expires=1713189511&Signature=HEEQO~vOtgkkoqZUr-6vKxBhtfyUWRpvAUy1aK13fk7Js6Sb0CRvFrIypjAIc88CePjMH6ABTzODXFwnuEkES2ulAAYTjuvO-5naiQNHZt~jRBBkXZCXgHDJU1gwxMxRl1MJJtqD1PlDFMytqcAqbmRpQxmFxfvLG7kTu7cAH3dOCCXYJP9-o6Ij-lX5F3Xi45t5z0aT-nivPePhbSZDA0GJR3WANk1c6HEEKJYiM27bFfvhuu5pZyq8s7PMlchg7UDTQcwFuC32sI7eIw9-wo5BJdVNvP2vGtjOyP6RF5nGsnJbO4JcvdmmTtm-DxRyX9MSm9dzKOXoJjM7VyetgQ__&Key-Pair-Id=K3EI6M078Z3AC3",
+          "height": 632,
+          "width": 423
+        }
+      },
+      "truncated_cells": []
+    }
+  ],
+  "num_rows_total": 116403,
+  "num_rows_per_page": 100,
+  "partial": false
+}
