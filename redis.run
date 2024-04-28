@@ -1,0 +1,1 @@
+docker run -it --name redis-server-look-alike -p 6379:6379 -p 8001:8001 -v /Users/foogaro/projects/GITHUB/look-alike/redis-volume:/data -v /Users/foogaro/projects/GITHUB/look-alike/redis-volume/redis.conf:/redis-stack.conf redis/redis-stack:7.2.0-v10

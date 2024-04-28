@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Webcam Capture Example</title>
+    <style>
+        body { text-align: center; }
+        canvas { display: none; }
+        .image-container {
+            position: relative;
+        }
+
+        .image-name {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0,0,0,0.5);
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+<h1>Webcam Stream</h1>
+<button id="show-results" onclick="loadResults()">Show results</button>
+
+<div id="container"></div>
+
+<script src="js/webcam.js"></script>
+</body>
+</html>

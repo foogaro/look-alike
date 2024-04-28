@@ -45,6 +45,13 @@ public class DataFetcher {
         }
     }
 
+    public void fetchData(int maxRows) {
+
+        while (OFFSET <= maxRows) {
+            OFFSET += fetchData(OFFSET, LENGTH);
+        }
+    }
+
     public int fetchData(int offset, int length) {
         int counter = 0;
         try {

@@ -1,7 +1,6 @@
 package com.foogaro.config;
 
 import com.redis.om.spring.annotations.EnableRedisDocumentRepositories;
-import com.redis.om.spring.annotations.EnableRedisEnhancedRepositories;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.web.client.RestTemplateBuilder;

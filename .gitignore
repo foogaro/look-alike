@@ -88,4 +88,6 @@ nb-configuration.xml
 
 var-lib-mysql
 
+*.log
 
+redis-volume/

@@ -15,8 +15,6 @@ import ai.djl.training.util.ProgressBar;
 import ai.djl.translate.TranslateException;
 import com.foogaro.FaceDetectionTranslator;
 import com.foogaro.dtos.CapturedImageData;
-import com.foogaro.dtos.DetectedFaces;
-import com.foogaro.dtos.ImageData;
 import com.foogaro.repositories.CapturedImageDataRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -74,7 +72,7 @@ public class FaceDetection {
                     System.out.println("Saved: /Users/foogaro/projects/GITHUB/look-alike/images/detected-"+i);
 
                     CapturedImageData capturedImageData = new CapturedImageData();
-                    capturedImageData.setId("foo-"+i.get());
+                    capturedImageData.setId("com.foogaro.dtos.CapturedImageData:foo-"+i.get());
                     capturedImageData.setImage(imageToBase64(subImage));
                     capturedImageData.setHeight(height);
                     capturedImageData.setWidth(width);

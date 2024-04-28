@@ -22,9 +22,9 @@ public class ImageData {
             algorithm = VectorField.VectorAlgorithm.HNSW,
             type = VectorType.FLOAT32,
             dimension = 512,
-            distanceMetric = DistanceMetric.COSINE,
+            distanceMetric = DistanceMetric.L2,
             initialCapacity = 10)
-    private byte[] imageEmbedding;
+    private float[] imageEmbedding;
     @Vectorize(destination = "imageEmbedding", embeddingType = EmbeddingType.FACE)
     private String imagePath;
     @Indexed
@@ -74,11 +74,11 @@ public class ImageData {
         this.width = width;
     }
 
-    public byte[] getImageEmbedding() {
+    public float[] getImageEmbedding() {
         return imageEmbedding;
     }
 
-    public void setImageEmbedding(byte[] imageEmbedding) {
+    public void setImageEmbedding(float[] imageEmbedding) {
         this.imageEmbedding = imageEmbedding;
     }
 

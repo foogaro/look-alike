@@ -1,0 +1,90 @@
+.image-list-container {
+    height: 100vh; /* Imposta l'altezza del contenitore uguale all'altezza della viewport */
+    overflow-y: auto; /* Permette la scrollbar interna se il contenuto è più alto del contenitore */
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.image-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.image-list li {
+    height: 300px; /* Altezza fissa per ogni elemento della lista */
+    margin-bottom: 10px; /* Spazio tra le immagini */
+    display: flex; /* Assicura che il contenuto sia allineato */
+    align-items: center; /* Centra verticalmente l'immagine nel li */
+    justify-content: center; /* Centra orizzontalmente l'immagine nel li */
+}
+
+.image-list img {
+    height: 100%; /* Imposta l'altezza dell'immagine a riempire completamente l'altezza del suo contenitore li */
+    width: auto; /* Mantiene le proporzioni corrette */
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: block;
+}
+
+.image-list img.selected {
+    box-shadow: 0 0 15px 5px rgba(255, 165, 0, 0.5); /* Ombreggiatura arancione */
+    border: 2px solid orange; /* Bordo arancione per un effetto più marcato */
+}
+
+.image-list img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+
+.carousel-container {
+    display: flex;          /* Usa flexbox per il layout */
+    flex-direction: column; /* Imposta gli elementi in colonna */
+    justify-content: center;/* Centra verticalmente il contenuto nel contenitore */
+    align-items: center;    /* Centra orizzontalmente il contenuto nel contenitore */
+    height: 100vh;          /* Imposta l'altezza del contenitore uguale all'altezza della viewport */
+    overflow: hidden;       /* Nasconde qualsiasi contenuto che esce dai bordi del contenitore */
+}
+
+.carousel-track {
+    display: flex;
+    align-items: center;
+    overflow: auto;
+    /*scrollbar-width: none; !* Nasconde la scrollbar in Firefox *!*/
+    /*-ms-overflow-style: none; !* Nasconde la scrollbar in Internet Explorer 10+ *!*/
+    /*white-space: nowrap; !* Assicura che le immagini siano in linea e non a capo *!*/
+}
+
+/*.carousel-track::-webkit-scrollbar {*/
+/*    width: 0px; !* Nasconde la scrollbar in WebKit browsers *!*/
+/*    background: transparent;  !* Rendi la scrollbar completamente invisibile *!*/
+/*}*/
+
+.carousel-track img {
+    height: 200px;
+    width: auto;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: filter 0.3s, transform 0.3s; /* Aggiunge transizioni per filter e transform */
+    filter: grayscale(100%); /* Applica grayscale a tutte le immagini di default */
+    flex-shrink: 0; /* Impedisce alle immagini di ridimensionarsi */
+}
+
+.carousel-track img.active {
+    filter: none; /* Rimuove il grayscale dall'immagine selezionata */
+}
+
+
+.carousel-track img:hover {
+    transform: scale(1.1); /* Effetto zoom al passaggio del mouse */
+}
+
+.image-description {
+    text-align: center;      /* Centra il testo orizzontalmente */
+    margin-top: 20px;        /* Distanza dal carosello */
+    color: #333;             /* Colore del testo per garantire visibilità */
+    font-size: 18px;         /* Dimensione del testo leggibile */
+    width: 100%;             /* Assicura che la larghezza copra l'intera larghezza del contenitore */
+    padding: 0 15px;
+}

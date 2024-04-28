@@ -1,27 +1,32 @@
 package com.foogaro.dtos;
 
-public class DetectedFaces {
-    private int numberOfFaces;
-    private ImageData allDetectedFaces;
+import com.redis.om.spring.annotations.Document;
 
-    public DetectedFaces(int numberOfFaces, ImageData allDetectedFaces) {
-        this.numberOfFaces = numberOfFaces;
-        this.allDetectedFaces = allDetectedFaces;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
+public class DetectedFaces implements Serializable {
+    private List<CapturedImageData> capturedImageDataList;
+
+    public DetectedFaces() {
+    }
+
+    public DetectedFaces(List<CapturedImageData> capturedImageDataList) {
+        this.capturedImageDataList = capturedImageDataList;
     }
 
     public int getNumberOfFaces() {
-        return numberOfFaces;
+        return capturedImageDataList != null ? capturedImageDataList.size() : 0;
     }
 
-    public void setNumberOfFaces(int numberOfFaces) {
-        this.numberOfFaces = numberOfFaces;
+
+    public void addCapturedImageData(CapturedImageData capturedImageData)  {
+        if (capturedImageDataList == null) this.capturedImageDataList = new ArrayList<>();
+        capturedImageDataList.add(capturedImageData);
     }
 
-    public ImageData getAllDetectedFaces() {
-        return allDetectedFaces;
-    }
-
-    public void setAllDetectedFaces(ImageData allDetectedFaces) {
-        this.allDetectedFaces = allDetectedFaces;
+    public List<CapturedImageData> getCapturedImageDataList() {
+        return capturedImageDataList;
     }
 }
