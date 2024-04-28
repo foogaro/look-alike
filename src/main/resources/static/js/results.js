@@ -58,6 +58,7 @@ function lookAlike(param) {
 
 function showLookAlike(similarImages) {
     const carouselTrack = document.querySelector('.carousel-track');
+    carouselTrack.innerHTML='';
     const imageListItems = document.querySelectorAll('.image-list img'); // Seleziona tutte le immagini a sinistra
 
     similarImages.forEach((similarImage, idx) => {
@@ -83,6 +84,7 @@ function showLookAlike(similarImages) {
     updateDescription(carouselTrack.firstChild.alt);
     updateActiveImage(0, carouselTrack); // Evidenzia la prima immagine all'inizio
 
+/*
     // Aggiungi l'evento di clic alle immagini di sinistra
     imageListItems.forEach((img, idx) => {
         img.onclick = () => {
@@ -90,6 +92,7 @@ function showLookAlike(similarImages) {
             updateDescription(img.name + ' - Score: ' + img.id);
         };
     });
+*/
 
 }
 
