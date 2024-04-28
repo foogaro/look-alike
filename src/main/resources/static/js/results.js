@@ -31,6 +31,7 @@ function viewResults(result) {
         imgElement.alt = img.id;
         imgElement.height = "250";
         imgElement.onclick = () => {
+            highlightSelectedImage(imgElement);
             lookAlike(img.id);
         };
         listItemElement.appendChild(imgElement)
@@ -59,7 +60,6 @@ function lookAlike(param) {
 function showLookAlike(similarImages) {
     const carouselTrack = document.querySelector('.carousel-track');
     carouselTrack.innerHTML='';
-    const imageListItems = document.querySelectorAll('.image-list img'); // Seleziona tutte le immagini a sinistra
 
     similarImages.forEach((similarImage, idx) => {
 
@@ -74,28 +74,15 @@ function showLookAlike(similarImages) {
         carouselTrack.appendChild(imgElement);
     });
 
-    // Rimuovi la classe selected da tutte le immagini a sinistra e aggiungila a quella cliccata
-    function highlightSelectedImage(selectedImg) {
-        imageListItems.forEach(img => img.classList.remove('selected'));
-        selectedImg.classList.add('selected');
-    }
-
-    // Imposta la descrizione e l'immagine attiva per la prima immagine
     updateDescription(carouselTrack.firstChild.alt);
     updateActiveImage(0, carouselTrack); // Evidenzia la prima immagine all'inizio
-
-/*
-    // Aggiungi l'evento di clic alle immagini di sinistra
-    imageListItems.forEach((img, idx) => {
-        img.onclick = () => {
-            highlightSelectedImage(img);
-            updateDescription(img.name + ' - Score: ' + img.id);
-        };
-    });
-*/
-
 }
 
+function highlightSelectedImage(selectedImg) {
+    const imageListItems = document.querySelectorAll('.image-list img');
+    imageListItems.forEach(img => img.classList.remove('selected'));
+    selectedImg.classList.add('selected');
+}
 
 function updateActiveImage(index, imagesContainer) {
     const images = imagesContainer.querySelectorAll('img');

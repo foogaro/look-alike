@@ -44,7 +44,6 @@ public class CaptureImageController {
 
         capturedImageDataRepository.deleteAll();
         CapturedImageData capturedImageDataWithFaces = faceDetection.detectFaces(imageBytes);
-//        capturedImageDataRepository.save(capturedImageDataWithFaces);
 
         return ResponseEntity.ok(capturedImageDataWithFaces);
     }
@@ -67,9 +66,8 @@ public class CaptureImageController {
 
     public ResponseEntity<?> top(String id) {
 
-//        CapturedImageData capturedImageData = capturedImageDataRepository.findById("com.foogaro.dtos.CapturedImageData:foo-"+id).get();
         CapturedImageData capturedImageData = capturedImageDataRepository.findById(id).get();
-        ImageData match = bestOfMatchService.match(Base64.getDecoder().decode(capturedImageData.getImage()));
+        ImageData match = bestOfMatchService.bestMatch(Base64.getDecoder().decode(capturedImageData.getImage()));
         byte[] imageBytes = java.util.Base64.getDecoder().decode(match.getBase64Image());
         Image img = null;
         try {
@@ -96,18 +94,7 @@ public class CaptureImageController {
     public ResponseEntity<?> lookAlike(@PathVariable String id) {
         log.info("CapturedImageData ID: " + id);
         CapturedImageData capturedImageData = capturedImageDataRepository.findById(id).get();
-        //ImageData match = bestOfMatchService.match(Base64.getDecoder().decode(capturedImageData.getImage()));
-        List<ImageData> matches = bestOfMatchService.matchAll(Base64.getDecoder().decode(capturedImageData.getImage()));
-//        byte[] imageBytes = java.util.Base64.getDecoder().decode(match.getBase64Image());
-//        Image img = null;
-//        try {
-//            img = ImageFactory.getInstance().fromInputStream(new ByteArrayInputStream(imageBytes));
-//            img.save(Files.newOutputStream(Paths.get("/Users/foogaro/projects/GITHUB/look-alike/images/" + id + ".jpg")),"png");
-//            System.out.println("Saved: /Users/foogaro/projects/GITHUB/look-alike/images/" + id + ".jpg");
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
-
+        List<ImageData> matches = bestOfMatchService.bestMatches(Base64.getDecoder().decode(capturedImageData.getImage()), 5);
         List<CapturedImageData> matchedList = new ArrayList<>();
         matches.forEach(match -> {
             CapturedImageData matched = new CapturedImageData();
@@ -119,9 +106,6 @@ public class CaptureImageController {
             matchedList.add(matched);
         });
         return ResponseEntity.ok(matchedList);
-//        String base64 = match.getBase64Image();
-//        byte[] decodeBase64 = Base64.getDecoder().decode(base64);
-//        return ResponseEntity.ok(decodeBase64);
     }
 
 }

@@ -1,8 +1,9 @@
 body {
     text-align: center;
-    background-color: #111111;
+    background-color: #091A23;
     font-size: 12px;
-    color: #f5f5f5;
+    color: #DCFF1E;
+    font-family: "Space Grotesk";
 }
 canvas {
     padding: 0vh 0vh;
@@ -10,7 +11,7 @@ canvas {
 }
 
 #show-results {
-    background-color: lawngreen;
+    background-color: #DCFF1E;
     color: white;
     height: 10vh;
     font-size: 24pt;
@@ -19,14 +20,14 @@ canvas {
 }
 
 .takePicture {
-    color: lawngreen;
+    color: #DCFF1E;
     border: none;
     cursor: grab;
     /*padding: 2px 12px 3px 12px;*/
     text-decoration: none;
 }
 .takePicture:hover {
-    color: red;
+    color: #FF4438;
     border: white;
     cursor: grabbing;
     text-decoration: none;
@@ -37,7 +38,7 @@ canvas {
     cursor: grab;
 }
 .overlay {
-    --border-style: 3px solid red;
+    --border-style: 3px solid #FF4438;
     --border-space: 20px;
 
     position: absolute;

@@ -1,9 +1,17 @@
+body {
+    text-align: center;
+    background-color: #091A23;
+    font-size: 12px;
+    color: #DCFF1E;
+    font-family: "Space Grotesk";
+}
+
 .image-list-container {
-    height: 100vh; /* Imposta l'altezza del contenitore uguale all'altezza della viewport */
-    overflow-y: auto; /* Permette la scrollbar interna se il contenuto è più alto del contenitore */
-    border: 1px solid #ccc;
+    height: 100vh;
+    overflow-y: auto;
+    border: 1px solid #163341;
     padding: 10px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(22,51,65,0.5);
 }
 
 .image-list {
@@ -13,78 +21,75 @@
 }
 
 .image-list li {
-    height: 300px; /* Altezza fissa per ogni elemento della lista */
-    margin-bottom: 10px; /* Spazio tra le immagini */
-    display: flex; /* Assicura che il contenuto sia allineato */
-    align-items: center; /* Centra verticalmente l'immagine nel li */
-    justify-content: center; /* Centra orizzontalmente l'immagine nel li */
+    height: 300px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .image-list img {
-    height: 100%; /* Imposta l'altezza dell'immagine a riempire completamente l'altezza del suo contenitore li */
-    width: auto; /* Mantiene le proporzioni corrette */
+    height: 100%;
+    width: auto;
     transition: transform 0.2s, box-shadow 0.2s;
     display: block;
 }
 
 .image-list img.selected {
-    box-shadow: 0 0 15px 5px rgba(255, 165, 0, 0.5); /* Ombreggiatura arancione */
-    border: 2px solid orange; /* Bordo arancione per un effetto più marcato */
+    box-shadow: 0 0 15px 5px rgba(191, 237, 255, 1);
+    border: 4px solid #80DBFF;
 }
 
 .image-list img:hover {
     transform: scale(1.05);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 0 15px 5px rgba(191, 237, 255, 1);
+    border: 4px solid #80DBFF;
 }
 
 
 .carousel-container {
-    display: flex;          /* Usa flexbox per il layout */
-    flex-direction: column; /* Imposta gli elementi in colonna */
-    justify-content: center;/* Centra verticalmente il contenuto nel contenitore */
-    align-items: center;    /* Centra orizzontalmente il contenuto nel contenitore */
-    height: 100vh;          /* Imposta l'altezza del contenitore uguale all'altezza della viewport */
-    overflow: hidden;       /* Nasconde qualsiasi contenuto che esce dai bordi del contenitore */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
 }
 
 .carousel-track {
     display: flex;
     align-items: center;
     overflow: auto;
-    /*scrollbar-width: none; !* Nasconde la scrollbar in Firefox *!*/
-    /*-ms-overflow-style: none; !* Nasconde la scrollbar in Internet Explorer 10+ *!*/
-    /*white-space: nowrap; !* Assicura che le immagini siano in linea e non a capo *!*/
 }
-
-/*.carousel-track::-webkit-scrollbar {*/
-/*    width: 0px; !* Nasconde la scrollbar in WebKit browsers *!*/
-/*    background: transparent;  !* Rendi la scrollbar completamente invisibile *!*/
-/*}*/
 
 .carousel-track img {
     height: 200px;
     width: auto;
     margin: 0 10px;
     cursor: pointer;
-    transition: filter 0.3s, transform 0.3s; /* Aggiunge transizioni per filter e transform */
-    filter: grayscale(100%); /* Applica grayscale a tutte le immagini di default */
-    flex-shrink: 0; /* Impedisce alle immagini di ridimensionarsi */
+    transition: filter 0.3s, transform 0.3s;
+    filter: grayscale(100%);
+    flex-shrink: 0;
+    box-shadow: none;
+    border: none;
 }
 
 .carousel-track img.active {
-    filter: none; /* Rimuove il grayscale dall'immagine selezionata */
+    filter: none;
+    box-shadow: 0 0 15px 5px rgba(220, 255, 30, 0.3);
+    border: 4px solid #DCFF1E;
 }
 
 
 .carousel-track img:hover {
-    transform: scale(1.1); /* Effetto zoom al passaggio del mouse */
+    transform: scale(1.5);
 }
 
 .image-description {
-    text-align: center;      /* Centra il testo orizzontalmente */
-    margin-top: 20px;        /* Distanza dal carosello */
-    color: #333;             /* Colore del testo per garantire visibilità */
-    font-size: 18px;         /* Dimensione del testo leggibile */
-    width: 100%;             /* Assicura che la larghezza copra l'intera larghezza del contenitore */
+    text-align: center;
+    margin-top: 20px;
+    color: #DCFF1E;
+    font-size: 18px;
+    width: 100%;
     padding: 0 15px;
 }

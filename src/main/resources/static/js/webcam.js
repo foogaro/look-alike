@@ -14,13 +14,12 @@ function takePicture() {
     canvas.width = video.videoWidth;
     canvas.height = video.videoHeight;
     context.drawImage(video, 0, 0, canvas.width, canvas.height);
-    canvas.style.display = 'block'; // Show the canvas with the photo
-    video.style.display = 'none'; // Show the canvas with the photo
+    canvas.style.display = 'block';
+    video.style.display = 'none';
     document.getElementById('overlay-bottom-right-text-clear').style.display = 'block';
     document.getElementById('overlay-bottom-right-text').style.display = 'none';
     document.getElementById('overlay-top-right-text-clear').style.display = 'block';
     document.getElementById('overlay-top-right-text').style.display = 'none';
-    document.getElementById('show-results').style.display = 'inline';
     sendPhotoToServer(canvas.toDataURL('image/jpeg'));
 }
 
@@ -42,7 +41,6 @@ function sendPhotoToServer(dataUrl) {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({ image: dataUrl })
-//        body: JSON.stringify({ image: canvas.toDataURL('image/jpeg') })
     })
         .then(response => response.json())
         .then(data => {
@@ -64,7 +62,8 @@ function displayImageOnCanvas(base64Image) {
         detectedCanvas.height = detectedImage.height;
         detectedContext.clearRect(0, 0, canvas.width, canvas.height);
         detectedContext.drawImage(detectedImage, 0, 0, canvas.width, canvas.height);
-        detectedCanvas.style.display = 'block'; // Show the canvas with the photo
+        detectedCanvas.style.display = 'block';
+        document.getElementById('show-results').style.display = 'inline';
     };
 
     detectedImage.src = "data:image/jpeg;charset=utf-8;base64," + base64Image;
