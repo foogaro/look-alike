@@ -1,4 +1,3 @@
-
 function loadResults() {
     fetch('http://localhost:8080/api/results', {
         method: 'GET',
@@ -18,33 +17,24 @@ function loadResults() {
 }
 
 function viewResults(result) {
-    const imageList = document.getElementById("image-list");
+    const imageList = document.querySelector(".image-list");
     imageList.innerHTML="";
-//    const br = document.createElement("br");
-    result.forEach(item => {
-        const wrapperDiv = document.createElement("div");
-        const divImage = document.createElement("div");
-        const divButton = document.createElement("div");
 
-        const img = document.createElement("img");
-        img.src = "data:image/jpeg;charset=utf-8;base64," + item.image;
-        img.alt = item.id;
-//        img.width = item.width;
-        img.height = "250";
+    const carouselTrack = document.querySelector('.carousel-track');
+    carouselTrack.innerHTML = '';
 
-        const button = document.createElement("button");
-        button.textContent = "Look alike...";
-        button.onclick = function() {
-            lookAlike(item.id); // Associate function with parameter
+    result.forEach((img, idx) => {
+
+        const listItemElement = document.createElement('li');
+        const imgElement = document.createElement('img');
+        imgElement.src = "data:image/jpeg;charset=utf-8;base64," + img.image;
+        imgElement.alt = img.id;
+        imgElement.height = "250";
+        imgElement.onclick = () => {
+            lookAlike(img.id);
         };
-
-        divImage.appendChild(img);
-        divButton.appendChild(button);
-
-        wrapperDiv.appendChild(divImage);
-        wrapperDiv.appendChild(divButton);
-
-        imageList.appendChild(wrapperDiv);
+        listItemElement.appendChild(imgElement)
+        imageList.appendChild(listItemElement);
     });
 }
 
@@ -67,34 +57,56 @@ function lookAlike(param) {
 }
 
 function showLookAlike(similarImages) {
-    const imageDisplay = document.getElementById("image-display");
-    imageDisplay.innerHTML="";
+    const carouselTrack = document.querySelector('.carousel-track');
+    const imageListItems = document.querySelectorAll('.image-list img'); // Seleziona tutte le immagini a sinistra
 
-    similarImages.forEach(similarImage => {
-        const wrapperDiv = document.createElement("div");
-        const divImage = document.createElement("div");
-        const divLabel = document.createElement("div");
+    similarImages.forEach((similarImage, idx) => {
 
-        const lookAlikeImage = document.createElement("img");
-        lookAlikeImage.src = "data:image/jpeg;charset=utf-8;base64," + similarImage.image;
-        lookAlikeImage.alt = similarImage.name;
-        //lookAlikeImage.width = similarImage.width;
-        //lookAlikeImage.height = similarImage.height;
-        lookAlikeImage.height = "250";
-//        imageDisplay.appendChild(lookAlikeImage);
-        const paragraph = document.createElement("p");
-        paragraph.innerHTML = similarImage.name + " - Score: " + similarImage.id;
-//        imageDisplay.appendChild(paragraph);
-
-        divImage.appendChild(lookAlikeImage);
-        divLabel.appendChild(paragraph);
-
-        wrapperDiv.appendChild(divImage);
-        wrapperDiv.appendChild(divLabel);
-
-        imageDisplay.appendChild(wrapperDiv);
-
+        const imgElement = document.createElement('img');
+        imgElement.src = "data:image/jpeg;charset=utf-8;base64," + similarImage.image;
+        imgElement.alt = similarImage.name + ' - Score: ' + similarImage.id;
+        imgElement.height = "250";
+        imgElement.onclick = () => {
+            updateDescription(similarImage.name + ' - Score: ' + similarImage.id);
+            updateActiveImage(idx, carouselTrack);
+        };
+        carouselTrack.appendChild(imgElement);
     });
+
+    // Rimuovi la classe selected da tutte le immagini a sinistra e aggiungila a quella cliccata
+    function highlightSelectedImage(selectedImg) {
+        imageListItems.forEach(img => img.classList.remove('selected'));
+        selectedImg.classList.add('selected');
+    }
+
+    // Imposta la descrizione e l'immagine attiva per la prima immagine
+    updateDescription(carouselTrack.firstChild.alt);
+    updateActiveImage(0, carouselTrack); // Evidenzia la prima immagine all'inizio
+
+    // Aggiungi l'evento di clic alle immagini di sinistra
+    imageListItems.forEach((img, idx) => {
+        img.onclick = () => {
+            highlightSelectedImage(img);
+            updateDescription(img.name + ' - Score: ' + img.id);
+        };
+    });
+
+}
+
+
+function updateActiveImage(index, imagesContainer) {
+    const images = imagesContainer.querySelectorAll('img');
+    images.forEach((img, idx) => {
+        if (idx === index) {
+            img.classList.add('active');
+        } else {
+            img.classList.remove('active');
+        }
+    });
+}
+
+function updateDescription(imgDescription) {
+    document.querySelector('.image-description').textContent = imgDescription;
 }
 
 loadResults();

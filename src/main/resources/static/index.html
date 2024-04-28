@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Webcam Capture Example</title>
-    <link href="css/webcam3.css" rel="stylesheet">
+    <link href="css/webcam.css" rel="stylesheet">
 </head>
 <body>
-<h1>Webcam Stream</h1>
+<h1>Look alike</h1>
 <div id="content">
     <div class="overlay">
         <div class="overlay-helper">
@@ -21,7 +21,7 @@
               <span id="overlay-top-right-text" class="overlay-text">
                 🔴 Live
               </span>
-              <span id="overlay-top-right-text-clear" class="overlay-text">
+                <span id="overlay-top-right-text-clear" class="overlay-text">
                 ✅ Shot
               </span>
             </div>
@@ -34,11 +34,11 @@
               <span id="overlay-bottom-right-text" class="overlay-text">
                 <span class="takePicture" onclick="takePicture()">Take Picture</span>
               </span>
-              <span id="overlay-bottom-right-text-clear" class="overlay-text">
+                <span id="overlay-bottom-right-text-clear" class="overlay-text">
                 <span class="takePicture" onclick="clearPicture()">Clear Picture</span>
               </span>
             </div>
-            <span id="show-results" onclick="showResults()">Show results</span>
+            <span id="show-results"><a href="results.html">Show results</a></span>
         </div>
     </div>
 </div>
