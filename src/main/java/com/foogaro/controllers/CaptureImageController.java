@@ -2,9 +2,7 @@ package com.foogaro.controllers;
 
 import ai.djl.modality.cv.Image;
 import ai.djl.modality.cv.ImageFactory;
-import com.foogaro.dtos.BestOfMatch;
 import com.foogaro.dtos.CapturedImageData;
-import com.foogaro.dtos.DetectedFaces;
 import com.foogaro.dtos.ImageData;
 import com.foogaro.repositories.CapturedImageDataRepository;
 import com.foogaro.services.BestOfMatchService;

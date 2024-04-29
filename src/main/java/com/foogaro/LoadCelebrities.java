@@ -1,6 +1,5 @@
 package com.foogaro;
 
-import com.foogaro.controllers.CaptureImageController;
 import com.foogaro.services.DataFetcher;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

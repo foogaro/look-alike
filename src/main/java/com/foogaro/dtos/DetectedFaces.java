@@ -1,7 +1,5 @@
 package com.foogaro.dtos;
 
-import com.redis.om.spring.annotations.Document;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;

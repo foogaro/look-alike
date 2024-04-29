@@ -91,3 +91,5 @@ var-lib-mysql
 *.log
 
 redis-volume/
+
+images/detected-*
